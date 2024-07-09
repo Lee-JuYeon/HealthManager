@@ -42,6 +42,9 @@
 		7EB62EE62C3D89A300343135 /* VitaminModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EE52C3D89A300343135 /* VitaminModel.swift */; };
 		7EB62EE72C3D89A300343135 /* VitaminModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EE52C3D89A300343135 /* VitaminModel.swift */; };
 		7EB62EE82C3D89A300343135 /* VitaminModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EE52C3D89A300343135 /* VitaminModel.swift */; };
+		7EB62EEB2C3D8FFE00343135 /* GradationTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EEA2C3D8FFE00343135 /* GradationTextView.swift */; };
+		7EB62EEC2C3D8FFE00343135 /* GradationTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EEA2C3D8FFE00343135 /* GradationTextView.swift */; };
+		7EB62EED2C3D8FFE00343135 /* GradationTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EEA2C3D8FFE00343135 /* GradationTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,7 @@
 		7EB62EDD2C3D895200343135 /* FatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatModel.swift; sourceTree = "<group>"; };
 		7EB62EE12C3D898200343135 /* CarbohydrateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbohydrateModel.swift; sourceTree = "<group>"; };
 		7EB62EE52C3D89A300343135 /* VitaminModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitaminModel.swift; sourceTree = "<group>"; };
+		7EB62EEA2C3D8FFE00343135 /* GradationTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradationTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +186,7 @@
 		7EB62EBB2C3D1E6000343135 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				7EB62EE92C3D8FE600343135 /* GradationTextView */,
 				7EB62EC92C3D426B00343135 /* CustomTabView */,
 				7EB62EBD2C3D279600343135 /* BottomSheetView */,
 			);
@@ -247,6 +252,14 @@
 				7EB62EE52C3D89A300343135 /* VitaminModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7EB62EE92C3D8FE600343135 /* GradationTextView */ = {
+			isa = PBXGroup;
+			children = (
+				7EB62EEA2C3D8FFE00343135 /* GradationTextView.swift */,
+			);
+			path = GradationTextView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +400,7 @@
 				7EB62ECB2C3D427800343135 /* CustomTabView.swift in Sources */,
 				7EB62EDA2C3D893000343135 /* NutritionModel.swift in Sources */,
 				7EB62EE22C3D898200343135 /* CarbohydrateModel.swift in Sources */,
+				7EB62EEB2C3D8FFE00343135 /* GradationTextView.swift in Sources */,
 				7EB62E902C3D17C500343135 /* HealthManagerApp.swift in Sources */,
 				7EB62EDE2C3D895200343135 /* FatModel.swift in Sources */,
 				7EB62EBF2C3D27B000343135 /* BottomSheetView.swift in Sources */,
@@ -405,6 +419,7 @@
 				7EB62ECC2C3D427800343135 /* CustomTabView.swift in Sources */,
 				7EB62EDF2C3D895200343135 /* FatModel.swift in Sources */,
 				7EB62EE72C3D89A300343135 /* VitaminModel.swift in Sources */,
+				7EB62EEC2C3D8FFE00343135 /* GradationTextView.swift in Sources */,
 				7EB62ED32C3D88CD00343135 /* NutritionView.swift in Sources */,
 				7EB62EE32C3D898200343135 /* CarbohydrateModel.swift in Sources */,
 				7EB62EDB2C3D893000343135 /* NutritionModel.swift in Sources */,
@@ -426,6 +441,7 @@
 				7EB62EE82C3D89A300343135 /* VitaminModel.swift in Sources */,
 				7EB62EAC2C3D17C600343135 /* HealthManagerUITests.swift in Sources */,
 				7EB62EE42C3D898200343135 /* CarbohydrateModel.swift in Sources */,
+				7EB62EED2C3D8FFE00343135 /* GradationTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
