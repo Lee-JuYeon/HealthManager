@@ -15,10 +15,7 @@ class DataVM: ObservableObject {
 }
 
 
-struct FatModel : Hashable {
-    let transFat : Double // 트랜스 지방
-    let saturatedFat : Double // 포화 지방
-}
+
 
 struct CarbohydrateModel : Hashable {
     let dietaryFiber : Double // 식이섬유
