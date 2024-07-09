@@ -17,26 +17,35 @@ struct ContentView: View {
     private func mainView() -> some View {
         return CustomTabView(
             setTabViewStyle: CustomTabView.CustomTabViewStyle.BottomNavigation,
-            setTabBackgroundColour: .backgroundColour,
+            setTabBackgroundColour: Color.green,
             setTabItemModels: [
-                CustomTabView.CustomTabItemModel(image: "image_up", title: "갓생"),
-                CustomTabView.CustomTabItemModel(image: "image_cards", title: "관리"),
-                CustomTabView.CustomTabItemModel(image: "image_profile", title: "프로필"),
+                CustomTabView.CustomTabItemModel(image: "image_up", title: "영양"),
+                CustomTabView.CustomTabItemModel(image: "image_cards", title: "운동")
             ],
             setSelectedIndex: $screenVM.pageIndex) { page in
                 switch(page) {
                 case 0 :
-                    GodLifeView()
+                    NutritionView()
                 case 1 :
-                    ManageView()
-                case 2 :
-                    SettingsView()
+                    WorkOutView()
                 default :
-                    GodLifeView()
+                    NutritionView()
                 }
             }
     }
 }
+
+
+struct WorkOutView : View {
+    // 운동 열량소비 (헬스루틴, 달리기 걷기 자전거)
+    var body: some View {
+        VStack(alignment: HorizontalAlignment.leading, spacing: 5){
+            
+        }
+    }
+}
+
+
 
 #Preview {
     ContentView()
