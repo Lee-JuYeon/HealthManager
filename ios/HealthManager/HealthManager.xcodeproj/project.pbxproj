@@ -27,6 +27,9 @@
 		7EB62ED22C3D88CD00343135 /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62ED12C3D88CD00343135 /* NutritionView.swift */; };
 		7EB62ED32C3D88CD00343135 /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62ED12C3D88CD00343135 /* NutritionView.swift */; };
 		7EB62ED42C3D88CD00343135 /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62ED12C3D88CD00343135 /* NutritionView.swift */; };
+		7EB62ED62C3D890200343135 /* WorkOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62ED52C3D890200343135 /* WorkOutView.swift */; };
+		7EB62ED72C3D890200343135 /* WorkOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62ED52C3D890200343135 /* WorkOutView.swift */; };
+		7EB62ED82C3D890200343135 /* WorkOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62ED52C3D890200343135 /* WorkOutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,7 @@
 		7EB62EC52C3D315600343135 /* DataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataVM.swift; sourceTree = "<group>"; };
 		7EB62ECA2C3D427800343135 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		7EB62ED12C3D88CD00343135 /* NutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionView.swift; sourceTree = "<group>"; };
+		7EB62ED52C3D890200343135 /* WorkOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +217,7 @@
 		7EB62ECF2C3D695600343135 /* WorkOut */ = {
 			isa = PBXGroup;
 			children = (
+				7EB62ED52C3D890200343135 /* WorkOutView.swift */,
 			);
 			path = WorkOut;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 			files = (
 				7EB62EC22C3D2E7D00343135 /* ScreenVM.swift in Sources */,
 				7EB62EC62C3D315600343135 /* DataVM.swift in Sources */,
+				7EB62ED62C3D890200343135 /* WorkOutView.swift in Sources */,
 				7EB62E922C3D17C500343135 /* ContentView.swift in Sources */,
 				7EB62ECB2C3D427800343135 /* CustomTabView.swift in Sources */,
 				7EB62E902C3D17C500343135 /* HealthManagerApp.swift in Sources */,
@@ -370,6 +376,7 @@
 			files = (
 				7EB62EC32C3D2E7D00343135 /* ScreenVM.swift in Sources */,
 				7EB62EC72C3D315600343135 /* DataVM.swift in Sources */,
+				7EB62ED72C3D890200343135 /* WorkOutView.swift in Sources */,
 				7EB62EA22C3D17C600343135 /* HealthManagerTests.swift in Sources */,
 				7EB62ECC2C3D427800343135 /* CustomTabView.swift in Sources */,
 				7EB62ED32C3D88CD00343135 /* NutritionView.swift in Sources */,
@@ -383,6 +390,7 @@
 				7EB62EC82C3D315600343135 /* DataVM.swift in Sources */,
 				7EB62EC42C3D2E7D00343135 /* ScreenVM.swift in Sources */,
 				7EB62ECD2C3D427800343135 /* CustomTabView.swift in Sources */,
+				7EB62ED82C3D890200343135 /* WorkOutView.swift in Sources */,
 				7EB62ED42C3D88CD00343135 /* NutritionView.swift in Sources */,
 				7EB62EAE2C3D17C600343135 /* HealthManagerUITestsLaunchTests.swift in Sources */,
 				7EB62EAC2C3D17C600343135 /* HealthManagerUITests.swift in Sources */,
