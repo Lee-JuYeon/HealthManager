@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct HealthManagerApp: App {
+    
+    @StateObject private var screenVM = ScreenVM()
+    @StateObject private var dataVM = DataVM()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(screenVM)
+                .environmentObject(dataVM)
         }
     }
 }
