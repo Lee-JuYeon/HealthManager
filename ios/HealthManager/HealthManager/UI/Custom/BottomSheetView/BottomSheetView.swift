@@ -149,7 +149,7 @@ extension View {
         @ViewBuilder setContent: @escaping () -> GetView
     ) -> some View {
         self.modifier(
-            CustomBottomSheet(
+            BottomSheetView(
                 isOpen: isOpen,
                 setContent: setContent
             )
