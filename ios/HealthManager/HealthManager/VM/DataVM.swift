@@ -17,11 +17,7 @@ class DataVM: ObservableObject {
 
 
 
-struct CarbohydrateModel : Hashable {
-    let dietaryFiber : Double // 식이섬유
-    let totalSugar : Double // 총 당류
-    let includeAddedSugar : Double // 첨가당
-}
+
 
 struct VitaminModel : Hashable {
     let vitaminA : Double // 비타민a
