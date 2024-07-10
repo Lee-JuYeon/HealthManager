@@ -56,7 +56,7 @@ struct NutritionView : View {
                     
             }
             
-            GradationTextView(setTitleText: "🍕 현재 섭취한 칼로리", setColors: [.red, .yellow])
+            GradationTextView(setTitleText: "🍕 현재 섭취한 칼로리", setColors: [.red, .yellow], setFontSize: 20)
             HStack(alignment: VerticalAlignment.top, spacing: 2){
                 nutritionGraphView()
                 nutritionGraphView()
