@@ -10,11 +10,13 @@ import SwiftUI
 struct GradationTextView: View {
     let setTitleText: String
     let setColors: [Color]
+    let setFontSize : CGFloat? = 20
+    let setFontWeight : Font.Weight? = .bold
     
     var body: some View {
         if #available(iOS 15, *) {
             Text(setTitleText)
-                .font(.system(size: 30, weight: .bold))
+                .font(.system(size: setFontSize ?? 20, weight: setFontWeight))
                 .foregroundStyle(
                     LinearGradient(
                         colors: setColors,
@@ -24,7 +26,7 @@ struct GradationTextView: View {
                 )
         } else {
             Text(setTitleText)
-                .font(.system(size: 30, weight: .bold))
+                .font(.system(size: setFontSize ?? 20, weight: setFontWeight))
                 .foregroundColor(.clear)
                 .overlay(
                     LinearGradient(
@@ -34,7 +36,7 @@ struct GradationTextView: View {
                     )
                     .mask(
                         Text(setTitleText)
-                            .font(.system(size: 30, weight: .bold))
+                            .font(.system(size: setFontSize ?? 20, weight: setFontWeight))
                     )
                 )
         }
