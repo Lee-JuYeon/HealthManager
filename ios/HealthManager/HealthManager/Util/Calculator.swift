@@ -8,13 +8,7 @@
 import SwiftUI
 
 
-struct MyBodyStateModel : Hashable {
-    let currentHeight : Double
-    let currentWeight : Double
-    let currentAge : Double
-    let currentGender : Bool
-    let goalWeight : Double // 목표 체중 추가
-}
+
 
 struct MacroNutrients : Hashable {
     let carbs: CarbohydrateModel
