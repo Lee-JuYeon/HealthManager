@@ -48,6 +48,11 @@ struct NutritionView : View {
             saturatedFat: 0.0
         )
     )
+    
+    init(){
+        minDailyMacroNutrientModel = calculator.miniumDailyMacroNutrients(myBody: dummyMyBodyState)
+    }
+    
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading, spacing: 5){
             HStack(alignment: VerticalAlignment.center, spacing: 5){
@@ -93,7 +98,7 @@ struct NutritionView : View {
                      setColour: Color.red,
                      setTitle: "💪🏻 Protein",
                      setGramCount: proteinGram,
-                     setMinGram: 80
+                     setMinGram: Int(minDailyMacroNutrientModel.protein)
                     )
                     
                     NutritionGraphView(
@@ -103,13 +108,13 @@ struct NutritionView : View {
                      setColour: Color.yellow,
                      setTitle: "🫒 Fat",
                      setGramCount: fatGram,
-                     setMinGram: 120
+                     setMinGram: Int(
+                        minDailyMacroNutrientModel.fat.saturatedFat +
+                        minDailyMacroNutrientModel.fat.transFat
+                     )
                     )
                 }
             }
-            .onAppear(perform: {
-//                minDailyMacroNutrientModel = calculator.miniumDailyMacroNutrients(myBody: dummyMyBodyState)
-            })
             .frame(
                 minWidth: 0,
                 maxWidth: .infinity

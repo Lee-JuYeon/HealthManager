@@ -68,30 +68,30 @@ struct NutritionGraphView: View {
             }
             
             // 최소 권장 선
-            VStack(alignment: HorizontalAlignment.center){
-                HStack(alignment: VerticalAlignment.center, spacing: 5){
-                    Text("\(getMinGram)g")
-                        .font(.system(size: 15, weight: .light))
-                    
-                    Rectangle()
-                        .fill(Color.black)
-                        .frame(
-                            minWidth: 0,
-                            maxWidth: .infinity,
-                            minHeight: 1,
-                            idealHeight: 1,
-                            maxHeight: 1
-                        )
-                }
-                .padding(
-                    EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
-                )
-               
-            }
-            .frame(
-                width: getWidth,
-                height: getHeight
-            )
+//            VStack(alignment: HorizontalAlignment.center){
+//                HStack(alignment: VerticalAlignment.center, spacing: 5){
+//                    Text("\(getMinGram)g")
+//                        .font(.system(size: 15, weight: .light))
+//                    
+//                    Rectangle()
+//                        .fill(Color.black)
+//                        .frame(
+//                            minWidth: 0,
+//                            maxWidth: .infinity,
+//                            minHeight: 1,
+//                            idealHeight: 1,
+//                            maxHeight: 1
+//                        )
+//                }
+//                .padding(
+//                    EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
+//                )
+//               
+//            }
+//            .frame(
+//                width: getWidth,
+//                height: getHeight
+//            )
         }
         .frame(
             width: getWidth,
