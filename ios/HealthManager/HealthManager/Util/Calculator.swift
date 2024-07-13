@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-
-
-
-struct MacroNutrients : Hashable {
-    let carbs: CarbohydrateModel
-    let protein: Double
-    let fat: FatModel
-}
-
 class Calculator {
     private enum ActivityLevel: Double {
         case sedentary = 1.2
@@ -54,7 +45,7 @@ class Calculator {
     }
 
     // 일일 탄단지 최소 권장량 (서울대 기준)
-    func miniumDailyMacroNutrients(myBody: MyBodyStateModel) -> MacroNutrients {
+    func miniumDailyMacroNutrients(myBody: MyBodyStateModel) -> MacroNutrientsModel {
         let minCalories = minimumDailyKcal(myBody: myBody)
             
         // 서울대 영양소 섭취기준 적용
@@ -76,7 +67,7 @@ class Calculator {
         let saturatedFat = minCalories * 0.07 / 9 // 총 열량의 7%를 포화지방으로
         let transFat = minCalories * 0.01 / 9 // 총 열량의 1%를 트랜스지방으로
         
-        return MacroNutrients(
+        return MacroNutrientsModel(
             carbs: CarbohydrateModel(
                 dietaryFiber: dietaryFiber,
                 totalSugar: totalSugar,
@@ -91,7 +82,7 @@ class Calculator {
     }
     
     // 일일 탄단지 권장량 (서울대 기준)
-    func dailyMacroNutrients(myBody: MyBodyStateModel) -> MacroNutrients {
+    func dailyMacroNutrients(myBody: MyBodyStateModel) -> MacroNutrientsModel {
         let dailyCalories = dailyKcal(myBody: myBody)
         
         // 서울대 영양소 섭취기준 적용
@@ -113,7 +104,7 @@ class Calculator {
         let saturatedFat = dailyCalories * 0.07 / 9 // 총 열량의 7% 이하를 포화지방으로
         let transFat = dailyCalories * 0.01 / 9 // 총 열량의 1% 이하를 트랜스지방으로
         
-        return MacroNutrients(
+        return MacroNutrientsModel(
             carbs: CarbohydrateModel(
                 dietaryFiber: dietaryFiber,
                 totalSugar: totalSugar,

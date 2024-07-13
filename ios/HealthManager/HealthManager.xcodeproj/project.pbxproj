@@ -54,6 +54,9 @@
 		7EB62EF92C42A8D000343135 /* MyBodyStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EF82C42A8D000343135 /* MyBodyStateModel.swift */; };
 		7EB62EFA2C42A8D000343135 /* MyBodyStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EF82C42A8D000343135 /* MyBodyStateModel.swift */; };
 		7EB62EFB2C42A8D000343135 /* MyBodyStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EF82C42A8D000343135 /* MyBodyStateModel.swift */; };
+		7EB62EFD2C42A8F800343135 /* MacroNutrientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EFC2C42A8F800343135 /* MacroNutrientsModel.swift */; };
+		7EB62EFE2C42A8F800343135 /* MacroNutrientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EFC2C42A8F800343135 /* MacroNutrientsModel.swift */; };
+		7EB62EFF2C42A8F800343135 /* MacroNutrientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EFC2C42A8F800343135 /* MacroNutrientsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +102,7 @@
 		7EB62EEF2C3E7AC700343135 /* NutritionGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionGraphView.swift; sourceTree = "<group>"; };
 		7EB62EF42C3FC68700343135 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		7EB62EF82C42A8D000343135 /* MyBodyStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBodyStateModel.swift; sourceTree = "<group>"; };
+		7EB62EFC2C42A8F800343135 /* MacroNutrientsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroNutrientsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +269,7 @@
 				7EB62EE12C3D898200343135 /* CarbohydrateModel.swift */,
 				7EB62EE52C3D89A300343135 /* VitaminModel.swift */,
 				7EB62EF82C42A8D000343135 /* MyBodyStateModel.swift */,
+				7EB62EFC2C42A8F800343135 /* MacroNutrientsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 				7EB62EF92C42A8D000343135 /* MyBodyStateModel.swift in Sources */,
 				7EB62EDA2C3D893000343135 /* NutritionModel.swift in Sources */,
 				7EB62EF52C3FC68700343135 /* Calculator.swift in Sources */,
+				7EB62EFD2C42A8F800343135 /* MacroNutrientsModel.swift in Sources */,
 				7EB62EE22C3D898200343135 /* CarbohydrateModel.swift in Sources */,
 				7EB62EEB2C3D8FFE00343135 /* GradationTextView.swift in Sources */,
 				7EB62E902C3D17C500343135 /* HealthManagerApp.swift in Sources */,
@@ -454,6 +460,7 @@
 				7EB62EF12C3E7AC700343135 /* NutritionGraphView.swift in Sources */,
 				7EB62EF62C3FC68700343135 /* Calculator.swift in Sources */,
 				7EB62ECC2C3D427800343135 /* CustomTabView.swift in Sources */,
+				7EB62EFE2C42A8F800343135 /* MacroNutrientsModel.swift in Sources */,
 				7EB62EDF2C3D895200343135 /* FatModel.swift in Sources */,
 				7EB62EE72C3D89A300343135 /* VitaminModel.swift in Sources */,
 				7EB62EEC2C3D8FFE00343135 /* GradationTextView.swift in Sources */,
@@ -480,6 +487,7 @@
 				7EB62EF72C3FC68700343135 /* Calculator.swift in Sources */,
 				7EB62EE82C3D89A300343135 /* VitaminModel.swift in Sources */,
 				7EB62EAC2C3D17C600343135 /* HealthManagerUITests.swift in Sources */,
+				7EB62EFF2C42A8F800343135 /* MacroNutrientsModel.swift in Sources */,
 				7EB62EE42C3D898200343135 /* CarbohydrateModel.swift in Sources */,
 				7EB62EED2C3D8FFE00343135 /* GradationTextView.swift in Sources */,
 			);
