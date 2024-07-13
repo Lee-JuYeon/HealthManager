@@ -16,6 +16,14 @@ import SwiftUI
 
 struct NutritionView : View {
     
+    let dummyMyBodyState = MyBodyStateModel(
+        currentHeight: 174.0,
+        currentWeight: 147.4,
+        currentAge: 28,
+        currentGender: true,
+        goalWeight: 58
+    )
+    
     @EnvironmentObject private var dataVM : DataVM
     private var carboHeight : CGFloat = 50
     private var carboGram : Int = 50
@@ -26,6 +34,20 @@ struct NutritionView : View {
 
     //  영양성분 체크 (식단, 영양제)
     @State private var eatKcal = 0
+    
+    private let calculator = Calculator()
+    private var minDailyMacroNutrientModel : MacroNutrientsModel = MacroNutrientsModel(
+        carbs: CarbohydrateModel(
+            dietaryFiber: 0.0,
+            totalSugar: 0.0,
+            includeAddedSugar: 0.0
+        ),
+        protein: 0.0,
+        fat: FatModel(
+            transFat: 0.0,
+            saturatedFat: 0.0
+        )
+    )
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading, spacing: 5){
             HStack(alignment: VerticalAlignment.center, spacing: 5){
@@ -60,7 +82,8 @@ struct NutritionView : View {
                      setColour: Color.orange,
                      setTitle: "🍚 Carbs",
                      setGramCount: carboGram,
-                     setMinGram: 50
+                     setMinGram: Int(minDailyMacroNutrientModel.carbs.dietaryFiber + minDailyMacroNutrientModel.carbs.includeAddedSugar + minDailyMacroNutrientModel.carbs.totalSugar)
+
                     )
                     
                     NutritionGraphView(
@@ -84,6 +107,9 @@ struct NutritionView : View {
                     )
                 }
             }
+            .onAppear(perform: {
+//                minDailyMacroNutrientModel = calculator.miniumDailyMacroNutrients(myBody: dummyMyBodyState)
+            })
             .frame(
                 minWidth: 0,
                 maxWidth: .infinity

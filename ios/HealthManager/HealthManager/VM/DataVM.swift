@@ -10,6 +10,6 @@ import SwiftUI
 class DataVM: ObservableObject {
     
  
-    @Published var currentNutitionModel : NutritionModel? = nil
+    @Published var currentNutitionModel : NutrientsModel? = nil
     
 }

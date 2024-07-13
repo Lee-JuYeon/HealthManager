@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NutritionModel : Hashable {
+struct NutrientsModel : Hashable {
     let calrories : Double // 열량, 칼로리
     let protein : Double // 단백질
     let carbo : CarbohydrateModel // 탄수화물
