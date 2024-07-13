@@ -7,61 +7,88 @@
 
 import SwiftUI
 
+/*
+ 하루 최소 섭취 권장량
+ 현재 섭취량
+ 현재 섭취량을 칼로리로 변환
+ */
+
+
 struct NutritionView : View {
     
     @EnvironmentObject private var dataVM : DataVM
-    
-   
-    private func nutritionGraphView() -> some View {
-        return VStack(alignment: HorizontalAlignment.center, spacing: 0){
-            Text("탄수화물")
-        }
-        .overlay(content: {
-            VStack(alignment: HorizontalAlignment.center, spacing: 5){
-                Text("탄수화물")
-                    .font(.system(size: 20, weight: .regular))
-                    .foregroundColor(.white)
-                Text("51g")
-                    .font(.system(size: 30, weight: .bold))
-                    .foregroundColor(.white)
-            }
-            .frame(
-                width: 100,
-                height: 100
-            )
-            .background(
-                RoundedRectangle(cornerRadius: 30)
-                    .fill(Color.black)
-            )
-        })
-        .frame(
-            width: 100,
-            height: 200,
-            alignment: .center
-        )
-        .background(
-            RoundedRectangle(cornerRadius: 30)
-                .fill(Color.gray)
-        )
-    }
+    private var carboHeight : CGFloat = 50
+    private var carboGram : Int = 50
+    private var proteinHeight : CGFloat = 100
+    private var proteinGram : Int = 100
+    private var fatHeight : CGFloat = 20
+    private var fatGram : Int = 20
 
     //  영양성분 체크 (식단, 영양제)
+    @State private var eatKcal = 0
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading, spacing: 5){
             HStack(alignment: VerticalAlignment.center, spacing: 5){
-                GradationTextView(setTitleText: "영양정보", setColors: [.blue, .green])
+                GradationTextView(
+                    setTitleText: "영양정보",
+                    setColors: [.blue, .green],
+                    setFontSize: 40,
+                    setFontWeight: .bold
+                )
                 
                 Image("globe")
                     .resizable()
                     
             }
             
-            GradationTextView(setTitleText: "🍕 현재 섭취한 칼로리", setColors: [.red, .yellow], setFontSize: 20)
-            HStack(alignment: VerticalAlignment.top, spacing: 2){
-                nutritionGraphView()
-                nutritionGraphView()
-                nutritionGraphView()
+            GradationTextView(
+                setTitleText: "🍕 현재 섭취한 칼로리 : \(eatKcal)Kcal",
+                setColors: [.red, .yellow, .orange],
+                setFontSize: 20,
+                setFontWeight: .regular
+            )
+            
+            GeometryReader{ proxy in
+                let width = proxy.size.width
+                let height = proxy.size.height
+                
+                HStack(alignment: VerticalAlignment.top, spacing: 10){
+                    NutritionGraphView(
+                     setWidth: width/3,
+                     setHeight: height/2,
+                     setBarHeight: carboHeight,
+                     setColour: Color.orange,
+                     setTitle: "🍚 Carbs",
+                     setGramCount: carboGram,
+                     setMinGram: 50
+                    )
+                    
+                    NutritionGraphView(
+                     setWidth: width/3,
+                     setHeight: height/2,
+                     setBarHeight: proteinHeight,
+                     setColour: Color.red,
+                     setTitle: "💪🏻 Protein",
+                     setGramCount: proteinGram,
+                     setMinGram: 80
+                    )
+                    
+                    NutritionGraphView(
+                     setWidth: width/3,
+                     setHeight: height/2,
+                     setBarHeight: fatHeight,
+                     setColour: Color.yellow,
+                     setTitle: "🫒 Fat",
+                     setGramCount: fatGram,
+                     setMinGram: 120
+                    )
+                }
             }
+            .frame(
+                minWidth: 0,
+                maxWidth: .infinity
+            )
+            
         }
         .padding(50)
     }
