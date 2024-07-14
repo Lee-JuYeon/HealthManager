@@ -14,6 +14,7 @@ import SwiftUI
  */
 
 
+
 struct NutritionView : View {
     
     let dummyMyBodyState = MyBodyStateModel(
@@ -68,11 +69,9 @@ struct NutritionView : View {
                     
             }
             
-            GradationTextView(
-                setTitleText: "🍕 현재 섭취한 칼로리 : \(eatKcal)Kcal",
-                setColors: [.red, .yellow, .orange],
-                setFontSize: 20,
-                setFontWeight: .regular
+            KcalGraphView(
+                setMyBodyStateModel: dummyMyBodyState,
+                setKcal: 1520.0
             )
             
             GeometryReader{ proxy in
@@ -84,8 +83,8 @@ struct NutritionView : View {
                      setWidth: width/3,
                      setHeight: height/2,
                      setBarHeight: carboHeight,
-                     setColour: Color.orange,
-                     setTitle: "🍚 Carbs",
+                     setColour: Color.green,
+                     setTitle: "🌾 Carbs",
                      setGramCount: carboGram,
                      setMinGram: Int(minDailyMacroNutrientModel.carbs.dietaryFiber + minDailyMacroNutrientModel.carbs.includeAddedSugar + minDailyMacroNutrientModel.carbs.totalSugar)
 
@@ -95,7 +94,7 @@ struct NutritionView : View {
                      setWidth: width/3,
                      setHeight: height/2,
                      setBarHeight: proteinHeight,
-                     setColour: Color.red,
+                     setColour: Color.brown,
                      setTitle: "💪🏻 Protein",
                      setGramCount: proteinGram,
                      setMinGram: Int(minDailyMacroNutrientModel.protein)
@@ -106,7 +105,7 @@ struct NutritionView : View {
                      setHeight: height/2,
                      setBarHeight: fatHeight,
                      setColour: Color.yellow,
-                     setTitle: "🫒 Fat",
+                     setTitle: "🧈 Fat",
                      setGramCount: fatGram,
                      setMinGram: Int(
                         minDailyMacroNutrientModel.fat.saturatedFat +

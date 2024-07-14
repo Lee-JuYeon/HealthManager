@@ -57,6 +57,9 @@
 		7EB62EFD2C42A8F800343135 /* MacroNutrientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EFC2C42A8F800343135 /* MacroNutrientsModel.swift */; };
 		7EB62EFE2C42A8F800343135 /* MacroNutrientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EFC2C42A8F800343135 /* MacroNutrientsModel.swift */; };
 		7EB62EFF2C42A8F800343135 /* MacroNutrientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62EFC2C42A8F800343135 /* MacroNutrientsModel.swift */; };
+		7EB62F022C43E51C00343135 /* KcalGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62F012C43E51C00343135 /* KcalGraphView.swift */; };
+		7EB62F032C43E51C00343135 /* KcalGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62F012C43E51C00343135 /* KcalGraphView.swift */; };
+		7EB62F042C43E51C00343135 /* KcalGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62F012C43E51C00343135 /* KcalGraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,7 @@
 		7EB62EF42C3FC68700343135 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		7EB62EF82C42A8D000343135 /* MyBodyStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBodyStateModel.swift; sourceTree = "<group>"; };
 		7EB62EFC2C42A8F800343135 /* MacroNutrientsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroNutrientsModel.swift; sourceTree = "<group>"; };
+		7EB62F012C43E51C00343135 /* KcalGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KcalGraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +207,7 @@
 		7EB62EBB2C3D1E6000343135 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				7EB62F002C43E51400343135 /* KcalGraphView */,
 				7EB62EEE2C3E7AB000343135 /* NutritionGraphView */,
 				7EB62EE92C3D8FE600343135 /* GradationTextView */,
 				7EB62EC92C3D426B00343135 /* CustomTabView */,
@@ -296,6 +301,14 @@
 				7EB62EF42C3FC68700343135 /* Calculator.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		7EB62F002C43E51400343135 /* KcalGraphView */ = {
+			isa = PBXGroup;
+			children = (
+				7EB62F012C43E51C00343135 /* KcalGraphView.swift */,
+			);
+			path = KcalGraphView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,6 +447,7 @@
 				7EB62EE62C3D89A300343135 /* VitaminModel.swift in Sources */,
 				7EB62ED62C3D890200343135 /* WorkOutView.swift in Sources */,
 				7EB62E922C3D17C500343135 /* ContentView.swift in Sources */,
+				7EB62F022C43E51C00343135 /* KcalGraphView.swift in Sources */,
 				7EB62ECB2C3D427800343135 /* CustomTabView.swift in Sources */,
 				7EB62EF92C42A8D000343135 /* MyBodyStateModel.swift in Sources */,
 				7EB62EDA2C3D893000343135 /* NutrientsModel.swift in Sources */,
@@ -458,6 +472,7 @@
 				7EB62EFA2C42A8D000343135 /* MyBodyStateModel.swift in Sources */,
 				7EB62EA22C3D17C600343135 /* HealthManagerTests.swift in Sources */,
 				7EB62EF12C3E7AC700343135 /* NutritionGraphView.swift in Sources */,
+				7EB62F032C43E51C00343135 /* KcalGraphView.swift in Sources */,
 				7EB62EF62C3FC68700343135 /* Calculator.swift in Sources */,
 				7EB62ECC2C3D427800343135 /* CustomTabView.swift in Sources */,
 				7EB62EFE2C42A8F800343135 /* MacroNutrientsModel.swift in Sources */,
@@ -483,6 +498,7 @@
 				7EB62EF22C3E7AC700343135 /* NutritionGraphView.swift in Sources */,
 				7EB62EDC2C3D893000343135 /* NutrientsModel.swift in Sources */,
 				7EB62ED42C3D88CD00343135 /* NutritionView.swift in Sources */,
+				7EB62F042C43E51C00343135 /* KcalGraphView.swift in Sources */,
 				7EB62EAE2C3D17C600343135 /* HealthManagerUITestsLaunchTests.swift in Sources */,
 				7EB62EF72C3FC68700343135 /* Calculator.swift in Sources */,
 				7EB62EE82C3D89A300343135 /* VitaminModel.swift in Sources */,
