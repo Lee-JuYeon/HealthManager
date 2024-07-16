@@ -19,13 +19,7 @@ struct NutritionView : View {
     
    
     @EnvironmentObject private var dataVM : DataVM
-    let dummyMyBodyState = MyBodyStateModel(
-        currentHeight: 174.0,
-        currentWeight: 147.4,
-        currentAge: 28,
-        currentGender: true,
-        goalWeight: 58
-    )
+   
 
     //  영양성분 체크 (식단, 영양제)
     @State private var eatKcal = 0

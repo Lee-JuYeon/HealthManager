@@ -19,4 +19,11 @@ struct NutrientsModel : Hashable {
     let potassium : Double // 칼륨
     let vitamin : VitaminModel // 비타민
     
+    func totalCarbo() -> Double {
+        return carbo.dietaryFiber + carbo.totalSugar + carbo.includeAddedSugar
+    }
+    
+    func totalFat() -> Double{
+        return fat.saturatedFat + fat.transFat
+    }
 }
