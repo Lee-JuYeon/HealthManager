@@ -10,6 +10,7 @@
 		7E0C1E502C463A8600EAD76A /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C1E4F2C463A8600EAD76A /* FoodModel.swift */; };
 		7E0C1E522C463ACA00EAD76A /* FoodConsumedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C1E512C463ACA00EAD76A /* FoodConsumedView.swift */; };
 		7E0C1E542C463AF300EAD76A /* FoodConsumedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C1E532C463AF300EAD76A /* FoodConsumedItem.swift */; };
+		7E0C1E562C463B2500EAD76A /* FavouriteFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C1E552C463B2500EAD76A /* FavouriteFoodView.swift */; };
 		7EB62E902C3D17C500343135 /* HealthManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62E8F2C3D17C500343135 /* HealthManagerApp.swift */; };
 		7EB62E922C3D17C500343135 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB62E912C3D17C500343135 /* ContentView.swift */; };
 		7EB62E942C3D17C600343135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EB62E932C3D17C600343135 /* Assets.xcassets */; };
@@ -89,6 +90,7 @@
 		7E0C1E4F2C463A8600EAD76A /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		7E0C1E512C463ACA00EAD76A /* FoodConsumedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodConsumedView.swift; sourceTree = "<group>"; };
 		7E0C1E532C463AF300EAD76A /* FoodConsumedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodConsumedItem.swift; sourceTree = "<group>"; };
+		7E0C1E552C463B2500EAD76A /* FavouriteFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteFoodView.swift; sourceTree = "<group>"; };
 		7EB62E8C2C3D17C500343135 /* HealthManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB62E8F2C3D17C500343135 /* HealthManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManagerApp.swift; sourceTree = "<group>"; };
 		7EB62E912C3D17C500343135 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				7EB62F052C43E67A00343135 /* MacroNutrientsViews.swift */,
 				7E0C1E512C463ACA00EAD76A /* FoodConsumedView.swift */,
 				7E0C1E532C463AF300EAD76A /* FoodConsumedItem.swift */,
+				7E0C1E552C463B2500EAD76A /* FavouriteFoodView.swift */,
 			);
 			path = Nutrition;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				7EB62EDA2C3D893000343135 /* NutrientsModel.swift in Sources */,
 				7EB62EF52C3FC68700343135 /* Calculator.swift in Sources */,
 				7EB62EFD2C42A8F800343135 /* MacroNutrientsModel.swift in Sources */,
+				7E0C1E562C463B2500EAD76A /* FavouriteFoodView.swift in Sources */,
 				7EB62EE22C3D898200343135 /* CarbohydrateModel.swift in Sources */,
 				7EB62EEB2C3D8FFE00343135 /* GradationTextView.swift in Sources */,
 				7E0C1E502C463A8600EAD76A /* FoodModel.swift in Sources */,

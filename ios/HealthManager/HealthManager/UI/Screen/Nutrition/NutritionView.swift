@@ -85,40 +85,6 @@ struct NutritionView : View {
     }
 }
 
-
-
-
-
-struct FavouriteFoodView : View {
-    
-    
-    private var getFoodModels : [FoodModel]
-    
-    init(
-        setFoodModel : [FoodModel]
-    ){
-        self.getFoodModels = setFoodModel
-    }
-    
-    var body: some View {
-        VStack(alignment: HorizontalAlignment.leading, spacing: 0){
-            GradationTextView(
-                setTitleText: "즐겨찾는 음식",
-                setColors: [.red, .orange],
-                setFontSize: 30,
-                setFontWeight: .bold
-            )
-            ScrollView(.vertical) {
-                LazyVStack(alignment: HorizontalAlignment.leading, spacing: 0){
-                    ForEach(getFoodModels, id: \.self) { model in
-                        FavouriteFoodItem(setFoodModel: model)
-
-                    }
-                }
-            }
-        }
-    }
-}
 struct FavouriteFoodItem : View {
     private var getFoodModel : FoodModel
     
