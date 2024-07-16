@@ -26,12 +26,15 @@ struct FoodConsumedView : View {
                 setFontWeight: .bold
             )
             ScrollView(.horizontal) {
-                LazyHStack(alignment: VerticalAlignment.center, spacing: 0){
+                LazyHStack(alignment: VerticalAlignment.top, spacing: 0){
                     ForEach(getFoodModels, id: \.self) { model in
                         FoodConsumedItem(setFoodModel: model)
                     }
                 }
             }
         }
+        .padding(
+            EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0)
+        )
     }
 }

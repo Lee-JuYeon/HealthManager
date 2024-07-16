@@ -17,7 +17,7 @@ struct FoodConsumedItem : View {
     }
     
     var body: some View {
-        VStack(alignment: HorizontalAlignment.leading, spacing: 0){
+        VStack(alignment: HorizontalAlignment.center, spacing: 0){
             Image(getFoodModel.image)
                 .resizable()
                 .frame(
@@ -25,9 +25,10 @@ struct FoodConsumedItem : View {
                     height: 100
                 )
             Text(getFoodModel.name)
-                .font(.system(size: 18, weight: .bold))
+                .font(.system(size: 13, weight: .bold))
                 .frame(
-                    width: 100
+                    width: 100,
+                    alignment: .center
                 )
         }
     }
