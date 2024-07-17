@@ -8,33 +8,74 @@
 import SwiftUI
 
 struct NutritionGraphView: View {
-    private var getBarheight: CGFloat
     private var getHeight: CGFloat
     private var getWidth: CGFloat
     private var getColour : Color
-    private var getTitle : String
-    private var getGramCount : Int
-    private var getMinGram : Int
+    private var getType : MacroNutrientType
+    private var getVM : DataVM
+    
+    enum MacroNutrientType {
+        case carbo
+        case protein
+        case fat
+    }
     
     init(
         setWidth: CGFloat,
         setHeight: CGFloat,
-        setBarHeight: CGFloat,
         setColour: Color,
-        setTitle: String,
-        setGramCount: Int,
-        setMinGram : Int
+        setType: MacroNutrientType,
+        setVM : DataVM
     ){
         self.getWidth = setWidth
         self.getHeight = setHeight
-        self.getBarheight = setBarHeight
         self.getColour = setColour
-        self.getTitle = setTitle
-        self.getGramCount = setGramCount
-        self.getMinGram = setMinGram
+        self.getType = setType
+        self.getVM = setVM
     }
     
+    private let calculator = Calculator()
+    private func calculateHeight() -> CGFloat {
+        let dailyMacroNutrientModel = calculator.dailyMacroNutrients(myBody: getVM.todayMyBodyStateModel)
+        let carbs = dailyMacroNutrientModel.totalCarbs()
+        let protein = dailyMacroNutrientModel.protein
+        let fat = dailyMacroNutrientModel.totalFats()
 
+        let proteinHeight = getHeight * CGFloat(min(setGram(setType: getType) / protein, 1.0))
+        let carboHeight = getHeight * CGFloat(min(setGram(setType: getType) / carbs, 1.0))
+        let fatHeight = getHeight * CGFloat(min(setGram(setType: getType) / fat, 1.0))
+        return switch getType {
+        case .carbo :
+            carboHeight
+        case .protein :
+            proteinHeight
+        case .fat :
+            fatHeight
+        }
+    }
+    
+    private func macroNutrientsTitle(setType getType : MacroNutrientType ) -> String {
+        return switch getType {
+        case .carbo :
+            "🌾 Carbs"
+        case .protein :
+            "💪🏻 Protein"
+        case .fat :
+            "🧈 Fat"
+        }
+    }
+
+    private func setGram(setType getType : MacroNutrientType) -> Double {
+        return switch getType {
+        case .carbo :
+            getVM.todayNutitionModel.totalCarbo()
+        case .protein :
+            getVM.todayNutitionModel.protein
+        case .fat :
+            getVM.todayNutitionModel.totalFat()
+        }
+    }
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             // 바깥쪽 사각형
@@ -45,11 +86,11 @@ struct NutritionGraphView: View {
             // 안쪽 사각형
             Rectangle()
                 .fill(getColour)
-                .frame(width: getWidth, height: getBarheight)
+                .frame(width: getWidth, height: calculateHeight())
             
             // 텍스트
             VStack {
-                Text(getTitle)
+                Text(macroNutrientsTitle(setType: getType))
                     .font(.system(size: 13, weight: .bold))
                     .padding(EdgeInsets(
                         top: 5, leading: 5, bottom: 5, trailing: 5
@@ -60,7 +101,7 @@ struct NutritionGraphView: View {
             // 그램 수 텍스트
             VStack(alignment: HorizontalAlignment.center, spacing: 5){
                 Spacer()
-                Text("\(getGramCount)g")
+                Text("\(setGram(setType: getType), specifier: "%.1f")g")
                     .font(.system(size: 15, weight: .bold))
                     .padding(EdgeInsets(
                         top: 5, leading: 5, bottom: 5, trailing: 5

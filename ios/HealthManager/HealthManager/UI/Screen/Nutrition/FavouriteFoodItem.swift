@@ -9,11 +9,13 @@ import SwiftUI
 
 struct FavouriteFoodItem : View {
     private var getFoodModel : FoodModel
-    
+    private var dataVM : DataVM
     init(
-        setFoodModel : FoodModel
+        setFoodModel : FoodModel,
+        setDataVM : DataVM
     ){
         self.getFoodModel = setFoodModel
+        self.dataVM = setDataVM
     }
     
     enum MacroNutrientType {
@@ -69,7 +71,6 @@ struct FavouriteFoodItem : View {
         )
     }
     
-    @EnvironmentObject private var dataVM : DataVM
     private let calculator = Calculator()
     private func calculateWidth(totalWidth: CGFloat, getGram : Double, type : MacroNutrientType) -> CGFloat {
         let dailyMacroNutrientModel = calculator.dailyMacroNutrients(myBody: dataVM.todayMyBodyStateModel)
@@ -99,11 +100,17 @@ struct FavouriteFoodItem : View {
                     height: 100
                 )
             VStack(alignment: HorizontalAlignment.leading, spacing: 0){
-                Text(getFoodModel.name)
-                    .font(.system(size: 20, weight: .bold))
+                HStack(alignment: VerticalAlignment.center, spacing: 5){
+                    Text(getFoodModel.name)
+                        .font(.system(size: 20, weight: .bold))
+                    Text("\(getFoodModel.nutrients.calrories, specifier: "%.0f")kcal")
+                        .font(.system(size: 13, weight: .regular))
+
+                }
+                
                 Text(getFoodModel.stuff.first ?? "")
                     .font(.system(size: 15, weight: .regular))
-                Text("\(getFoodModel.nutrients.calrories, specifier: "%.1f")kcal")
+               
                 GeometryReader{ proxy in
                     HStack(alignment: VerticalAlignment.center, spacing: 0){
                         graphBar(setProxyReader: proxy, setGram: getFoodModel.nutrients.totalCarbo(), setType: .carbo)

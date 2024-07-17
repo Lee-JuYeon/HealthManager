@@ -18,6 +18,8 @@ struct FavouriteFoodView : View {
         self.getFoodModels = setFoodModel
     }
     
+    @EnvironmentObject private var dataVM : DataVM
+
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading, spacing: 0){
             GradationTextView(
@@ -29,7 +31,7 @@ struct FavouriteFoodView : View {
             ScrollView(.vertical) {
                 LazyVStack(alignment: HorizontalAlignment.leading, spacing: 0){
                     ForEach(getFoodModels, id: \.self) { model in
-                        FavouriteFoodItem(setFoodModel: model)
+                        FavouriteFoodItem(setFoodModel: model, setDataVM: dataVM)
 
                     }
                 }

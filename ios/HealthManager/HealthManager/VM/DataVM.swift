@@ -11,7 +11,7 @@ import Combine
 class DataVM: ObservableObject {
     
  
-    @Published var todayNutitionModel : NutrientsModel? = nil
+    @Published var todayNutitionModel : NutrientsModel
     @Published var todayMyBodyStateModel : MyBodyStateModel
     
     init(){
@@ -24,7 +24,39 @@ class DataVM: ObservableObject {
             goalWeight: 58
         )
         
-        
+        todayNutitionModel = NutrientsModel(
+            calrories: 0.0,
+            protein: 10.0,
+            carbo: CarbohydrateModel(
+                dietaryFiber: 10.0,
+                totalSugar: 10.0,
+                includeAddedSugar: 10.0
+            ),
+            fat: FatModel(
+                transFat: 10.0,
+                saturatedFat: 10.0
+            ),
+            sodium: 0.0,
+            cholesterol: 0.0,
+            iron: 0.0,
+            calcium: 0.0,
+            potassium: 0.0,
+            vitamin: VitaminModel(
+                vitaminA: 0.0,
+                vitaminB1: 0.0,
+                vitaminB2: 0.0,
+                vitaminB3: 0.0,
+                vitaminB5: 0.0,
+                vitaminB6: 0.0,
+                vitaminB7: 0.0,
+                vitaminB9: 0.0,
+                vitaminB12: 0.0,
+                vitaminC: 0.0,
+                vitaminD: 0.0,
+                vitaminE: 0.0,
+                vitaminK: 0.0
+            )
+        )
     }
     
    
