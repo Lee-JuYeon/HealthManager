@@ -16,21 +16,49 @@ struct FavouriteFoodItem : View {
         self.getFoodModel = setFoodModel
     }
     
+    enum MacroNutrientType {
+        case carbo
+        case protein
+        case fat
+    }
     
-    private func graphBar(setProxyReader getProxyReader : GeometryProxy, setGram getGram : Double) -> some View {
+    private func macroNutrientsColour(setType getType : MacroNutrientType ) -> Color {
+        return switch getType {
+        case .carbo :
+            Color.green
+        case .protein :
+            Color.brown
+        case .fat :
+            Color.yellow
+        }
+    }
+    
+    private func graphBar(
+        setProxyReader getProxyReader : GeometryProxy,
+        setGram getGram : Double,
+        setType getType : MacroNutrientType
+    ) -> some View {
         let width = getProxyReader.size.width / 3
         let height = getProxyReader.size.height
-        return HStack(alignment: VerticalAlignment.center, spacing: 0){
+        return ZStack(alignment: .leading){
+            
             Rectangle()
-                .fill(Color.red)
+                .fill(macroNutrientsColour(setType: getType))
                 .frame(
-                    width: calculateWidth(totalWidth: width, getGram: getGram),
+                    width: calculateWidth(totalWidth: width, getGram: getGram, type: getType),
                     height: height
+                )
+            
+            Text("\(getGram, specifier: "%.1f")g")
+                .font(.system(size: 10, weight: .regular))
+                .padding(
+                    EdgeInsets(top: 1, leading: 5, bottom: 1, trailing: 0)
                 )
         }
         .frame(
             width: width,
-            height: height
+            height: height,
+            alignment: .leading
         )
         .background(
             Rectangle()
@@ -43,14 +71,23 @@ struct FavouriteFoodItem : View {
     
     @EnvironmentObject private var dataVM : DataVM
     private let calculator = Calculator()
-    private func calculateWidth(totalWidth: CGFloat, getGram : Double) -> CGFloat {
+    private func calculateWidth(totalWidth: CGFloat, getGram : Double, type : MacroNutrientType) -> CGFloat {
         let dailyMacroNutrientModel = calculator.dailyMacroNutrients(myBody: dataVM.todayMyBodyStateModel)
-        let carbs = dailyMacroNutrientModel.carbs
+        let carbs = dailyMacroNutrientModel.totalCarbs()
         let protein = dailyMacroNutrientModel.protein
-        let fat = dailyMacroNutrientModel.fat
+        let fat = dailyMacroNutrientModel.totalFats()
 
         let proteinWidth = totalWidth * CGFloat(min(getGram / protein, 1.0))
-        return proteinWidth
+        let carboWidth = totalWidth * CGFloat(min(getGram / carbs, 1.0))
+        let fatWidth = totalWidth * CGFloat(min(getGram / fat, 1.0))
+        return switch type {
+        case .carbo :
+            carboWidth
+        case .protein :
+            proteinWidth
+        case .fat :
+            fatWidth
+        }
     }
     
     var body: some View {
@@ -67,12 +104,11 @@ struct FavouriteFoodItem : View {
                 Text(getFoodModel.stuff.first ?? "")
                     .font(.system(size: 15, weight: .regular))
                 Text("\(getFoodModel.nutrients.calrories, specifier: "%.1f")kcal")
-                Text("120g, 0g, 250g")
                 GeometryReader{ proxy in
                     HStack(alignment: VerticalAlignment.center, spacing: 0){
-                        graphBar(setProxyReader: proxy, setGram: getFoodModel.nutrients.carbo.dietaryFiber)
-                        graphBar(setProxyReader: proxy)
-                        graphBar(setProxyReader: proxy)
+                        graphBar(setProxyReader: proxy, setGram: getFoodModel.nutrients.totalCarbo(), setType: .carbo)
+                        graphBar(setProxyReader: proxy, setGram: getFoodModel.nutrients.protein, setType: .protein)
+                        graphBar(setProxyReader: proxy, setGram: getFoodModel.nutrients.totalFat(), setType: .fat)
                     }
                     .frame(
                         width: proxy.size.width
@@ -81,8 +117,8 @@ struct FavouriteFoodItem : View {
                 .frame(
                     minWidth: 0,
                     maxWidth: .infinity,
-                    minHeight: 50,
-                    maxHeight: 50
+                    minHeight: 10,
+                    maxHeight: 10
                 )
             }
         }

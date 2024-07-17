@@ -11,6 +11,15 @@ struct MacroNutrientsModel : Hashable {
     let carbs: CarbohydrateModel
     let protein: Double
     let fat: FatModel
+    
+
+    func totalCarbs() -> Double {
+        return carbs.dietaryFiber + carbs.totalSugar + carbs.includeAddedSugar
+    }
+    
+    func totalFats() -> Double{
+        return fat.saturatedFat + fat.transFat
+    }
 }
 
 

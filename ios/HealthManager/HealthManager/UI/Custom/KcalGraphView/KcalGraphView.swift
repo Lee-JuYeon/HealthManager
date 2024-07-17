@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct KcalGraphView : View {
-    private let calculator = Calculator()
     private var getMyBodyStateModel : MyBodyStateModel
     private var getKcal : Double
     
@@ -20,6 +19,7 @@ struct KcalGraphView : View {
         self.getKcal = setKcal
     }
     
+    private let calculator = Calculator()
     var body: some View {
         GeometryReader{ proxy in
             HStack(alignment: VerticalAlignment.center, spacing: 0){
