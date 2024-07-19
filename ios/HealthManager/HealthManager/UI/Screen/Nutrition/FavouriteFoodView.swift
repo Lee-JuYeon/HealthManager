@@ -9,28 +9,22 @@ import SwiftUI
 
 struct FavouriteFoodView : View {
     
-    
-    private var getFoodModels : [FoodModel]
-    
-    init(
-        setFoodModel : [FoodModel]
-    ){
-        self.getFoodModels = setFoodModel
-    }
-    
     @EnvironmentObject private var dataVM : DataVM
 
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading, spacing: 0){
-            GradationTextView(
-                setTitleText: "즐겨찾는 음식",
-                setColors: [.red, .orange],
-                setFontSize: 30,
-                setFontWeight: .bold
-            )
+            HStack(){
+                GradationTextView(
+                    setTitleText: "즐겨찾는 음식",
+                    setColors: [.red, .orange],
+                    setFontSize: 30,
+                    setFontWeight: .bold
+                )
+                
+            }
             ScrollView(.vertical) {
                 LazyVStack(alignment: HorizontalAlignment.leading, spacing: 0){
-                    ForEach(getFoodModels, id: \.self) { model in
+                    ForEach(dataVM.dummyFoodData, id: \.self) { model in
                         FavouriteFoodItem(setFoodModel: model, setDataVM: dataVM)
 
                     }

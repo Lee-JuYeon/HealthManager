@@ -8,11 +8,18 @@
 import SwiftUI
 import Combine
 
+/*
+ 영양정보 : 타이틀 색상변경, 음식 추가, 음식 스캐닝(그람당 영양성분 저장)
+ 섭취한 음식 :  삭제, 타이틀 색상변경
+ 즐겨찾는 음식 : 바텀시트 (음식 섭취, 음식 편집, 삭제), 타이틀 색상변경
+ */
+
 class DataVM: ObservableObject {
     
  
     @Published var todayNutitionModel : NutrientsModel
     @Published var todayMyBodyStateModel : MyBodyStateModel
+    @Published var todayConsumedFoodList : [FoodModel]
     
     init(){
         // gender : true = 남자, false = 여자.
@@ -26,15 +33,54 @@ class DataVM: ObservableObject {
         
         todayNutitionModel = NutrientsModel(
             calrories: 0.0,
-            protein: 10.0,
+            protein: 0.0,
             carbo: CarbohydrateModel(
-                dietaryFiber: 10.0,
-                totalSugar: 10.0,
-                includeAddedSugar: 10.0
+                dietaryFiber: 0.0,
+                totalSugar: 0.0,
+                includeAddedSugar: 0.0
             ),
             fat: FatModel(
-                transFat: 10.0,
-                saturatedFat: 10.0
+                transFat: 0.0,
+                saturatedFat: 0.0
+            ),
+            sodium: 0.0,
+            cholesterol: 0.0,
+            iron: 0.0,
+            calcium: 0.0,
+            potassium: 0.0,
+            vitamin: VitaminModel(
+                vitaminA: 0.0,
+                vitaminB1: 0.0,
+                vitaminB2: 0.0,
+                vitaminB3: 0.0,
+                vitaminB5: 0.0,
+                vitaminB6: 0.0,
+                vitaminB7: 0.0,
+                vitaminB9: 0.0,
+                vitaminB12: 0.0,
+                vitaminC: 0.0,
+                vitaminD: 0.0,
+                vitaminE: 0.0,
+                vitaminK: 0.0
+            )
+        )
+        
+        todayConsumedFoodList = dummyFoodData
+    }
+    
+   
+    func initNutrients(){
+        todayNutitionModel = NutrientsModel(
+            calrories: 0.0,
+            protein: 0.0,
+            carbo: CarbohydrateModel(
+                dietaryFiber: 0.0,
+                totalSugar: 0.0,
+                includeAddedSugar: 0.0
+            ),
+            fat: FatModel(
+                transFat: 0.0,
+                saturatedFat: 0.0
             ),
             sodium: 0.0,
             cholesterol: 0.0,
@@ -59,15 +105,81 @@ class DataVM: ObservableObject {
         )
     }
     
-   
     func updateNutritents(setModel getModel : NutrientsModel){
         todayNutitionModel = getModel
     }
-    
     func updateMyBodyStateModel(setModel getModel : MyBodyStateModel){
         todayMyBodyStateModel = getModel
+        initNutrients()
     }
     
+    func addConsumedFoodFromList(setFoodModel getFoodModel : FoodModel){
+        todayConsumedFoodList.append(getFoodModel)
+        todayNutitionModel.calrories += getFoodModel.nutrients.calrories
+        todayNutitionModel.protein += getFoodModel.nutrients.protein
+        todayNutitionModel.carbo.dietaryFiber += getFoodModel.nutrients.carbo.dietaryFiber
+        todayNutitionModel.carbo.includeAddedSugar += getFoodModel.nutrients.carbo.includeAddedSugar
+        todayNutitionModel.carbo.totalSugar += getFoodModel.nutrients.carbo.totalSugar
+        todayNutitionModel.fat.saturatedFat += getFoodModel.nutrients.fat.saturatedFat
+        todayNutitionModel.fat.transFat += getFoodModel.nutrients.fat.transFat
+        todayNutitionModel.sodium += getFoodModel.nutrients.sodium
+        todayNutitionModel.cholesterol += getFoodModel.nutrients.cholesterol
+        todayNutitionModel.iron += getFoodModel.nutrients.iron
+        todayNutitionModel.calcium += getFoodModel.nutrients.calcium
+        todayNutitionModel.potassium += getFoodModel.nutrients.potassium
+        todayNutitionModel.vitamin.vitaminA += getFoodModel.nutrients.vitamin.vitaminA
+        todayNutitionModel.vitamin.vitaminB1 += getFoodModel.nutrients.vitamin.vitaminB1
+        todayNutitionModel.vitamin.vitaminB2 += getFoodModel.nutrients.vitamin.vitaminB2
+        todayNutitionModel.vitamin.vitaminB3 += getFoodModel.nutrients.vitamin.vitaminB3
+        todayNutitionModel.vitamin.vitaminB5 += getFoodModel.nutrients.vitamin.vitaminB5
+        todayNutitionModel.vitamin.vitaminB6 += getFoodModel.nutrients.vitamin.vitaminB6
+        todayNutitionModel.vitamin.vitaminB7 += getFoodModel.nutrients.vitamin.vitaminB7
+        todayNutitionModel.vitamin.vitaminB9 += getFoodModel.nutrients.vitamin.vitaminB9
+        todayNutitionModel.vitamin.vitaminB12 += getFoodModel.nutrients.vitamin.vitaminB12
+        todayNutitionModel.vitamin.vitaminC += getFoodModel.nutrients.vitamin.vitaminC
+        todayNutitionModel.vitamin.vitaminD += getFoodModel.nutrients.vitamin.vitaminD
+        todayNutitionModel.vitamin.vitaminE += getFoodModel.nutrients.vitamin.vitaminE
+        todayNutitionModel.vitamin.vitaminK += getFoodModel.nutrients.vitamin.vitaminK
+    }
+    func removeConsumedFoodFromList(setFoodModel getFoodModel : FoodModel){
+        
+        if let index = todayConsumedFoodList.firstIndex(where: { $0 == getFoodModel }) {
+          todayConsumedFoodList.remove(at: index)
+        } else {
+          // getFoodModel 객체가 배열에 존재하지 않음을 처리
+        }
+        todayNutitionModel.calrories -= getFoodModel.nutrients.calrories
+        todayNutitionModel.protein -= getFoodModel.nutrients.protein
+        todayNutitionModel.carbo.dietaryFiber -= getFoodModel.nutrients.carbo.dietaryFiber
+        todayNutitionModel.carbo.includeAddedSugar -= getFoodModel.nutrients.carbo.includeAddedSugar
+        todayNutitionModel.carbo.totalSugar -= getFoodModel.nutrients.carbo.totalSugar
+        todayNutitionModel.fat.saturatedFat -= getFoodModel.nutrients.fat.saturatedFat
+        todayNutitionModel.fat.transFat -= getFoodModel.nutrients.fat.transFat
+        todayNutitionModel.sodium -= getFoodModel.nutrients.sodium
+        todayNutitionModel.cholesterol -= getFoodModel.nutrients.cholesterol
+        todayNutitionModel.iron -= getFoodModel.nutrients.iron
+        todayNutitionModel.calcium -= getFoodModel.nutrients.calcium
+        todayNutitionModel.potassium -= getFoodModel.nutrients.potassium
+        todayNutitionModel.vitamin.vitaminA -= getFoodModel.nutrients.vitamin.vitaminA
+        todayNutitionModel.vitamin.vitaminB1 -= getFoodModel.nutrients.vitamin.vitaminB1
+        todayNutitionModel.vitamin.vitaminB2 -= getFoodModel.nutrients.vitamin.vitaminB2
+        todayNutitionModel.vitamin.vitaminB3 -= getFoodModel.nutrients.vitamin.vitaminB3
+        todayNutitionModel.vitamin.vitaminB5 -= getFoodModel.nutrients.vitamin.vitaminB5
+        todayNutitionModel.vitamin.vitaminB6 -= getFoodModel.nutrients.vitamin.vitaminB6
+        todayNutitionModel.vitamin.vitaminB7 -= getFoodModel.nutrients.vitamin.vitaminB7
+        todayNutitionModel.vitamin.vitaminB9 -= getFoodModel.nutrients.vitamin.vitaminB9
+        todayNutitionModel.vitamin.vitaminB12 -= getFoodModel.nutrients.vitamin.vitaminB12
+        todayNutitionModel.vitamin.vitaminC -= getFoodModel.nutrients.vitamin.vitaminC
+        todayNutitionModel.vitamin.vitaminD -= getFoodModel.nutrients.vitamin.vitaminD
+        todayNutitionModel.vitamin.vitaminE -= getFoodModel.nutrients.vitamin.vitaminE
+        todayNutitionModel.vitamin.vitaminK -= getFoodModel.nutrients.vitamin.vitaminK
+    }
+    
+    func resetConsumedList(){
+        todayConsumedFoodList = []  // 배열을 새로운 빈 배열로 할당
+        initNutrients()
+    }
+ 
     
     
     let dummyFoodData: [FoodModel] = [

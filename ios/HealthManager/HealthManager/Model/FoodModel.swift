@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct FoodModel : Hashable {
-    let name : String
-    let image : String
-    let stuff : [String]
-    let nutrients : NutrientsModel
+    var name : String
+    var image : String
+    var stuff : [String]
+    var nutrients : NutrientsModel
 }

@@ -24,7 +24,7 @@ struct NutritionView : View {
     //  영양성분 체크 (식단, 영양제)
     @State private var eatKcal = 0
    
-    
+    @State private var createFoodModelView = false
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             VStack(alignment: HorizontalAlignment.leading, spacing: 5){
@@ -66,12 +66,12 @@ struct NutritionView : View {
                 
                 KcalGraphView(
                     setMyBodyStateModel: dataVM.todayMyBodyStateModel,
-                    setKcal: 1520.0
+                    setKcal: dataVM.todayNutitionModel.calrories
                 )
                 
                 MacroNutrientsViews()
-                FoodConsumedView(setFoodModels: dataVM.dummyFoodData)
-                FavouriteFoodView(setFoodModel: dataVM.dummyFoodData)
+                FoodConsumedView()
+                FavouriteFoodView()
                 
             }
         }

@@ -8,6 +8,6 @@
 import SwiftUI
 
 struct FatModel : Hashable {
-    let transFat : Double // 트랜스 지방
-    let saturatedFat : Double // 포화 지방
+    var transFat : Double // 트랜스 지방
+    var saturatedFat : Double // 포화 지방
 }

@@ -9,26 +9,36 @@ import SwiftUI
 
 struct FoodConsumedView : View {
     
-    private var getFoodModels : [FoodModel]
-    
-    init(
-        setFoodModels : [FoodModel]
-    ){
-        self.getFoodModels = setFoodModels
-    }
-    
+    @EnvironmentObject private var dataVM : DataVM
+
     var body: some View {
         VStack(alignment: HorizontalAlignment.leading, spacing: 0){
-            GradationTextView(
-                setTitleText: "섭취한 음식",
-                setColors: [.red, .orange],
-                setFontSize: 30,
-                setFontWeight: .bold
-            )
+            HStack(alignment: VerticalAlignment.center, spacing: 0){
+                GradationTextView(
+                    setTitleText: "섭취한 음식",
+                    setColors: [.yellow, .red, .purple],
+                    setFontSize: 30,
+                    setFontWeight: .bold
+                )
+                
+                Text("초기화")
+                    .padding(4)
+                    .font(.system(size: 15, weight: .bold))
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 1)
+                    )
+                    .padding(5)
+                    .onTapGesture {
+                        dataVM.resetConsumedList()
+                    }
+            }
             ScrollView(.horizontal) {
                 LazyHStack(alignment: VerticalAlignment.top, spacing: 0){
-                    ForEach(getFoodModels, id: \.self) { model in
-                        FoodConsumedItem(setFoodModel: model)
+                    ForEach(dataVM.todayConsumedFoodList, id: \.self) { model in
+                        FoodConsumedItem(setFoodModel: model) { foodModel in
+                            dataVM
+                        }
                     }
                 }
             }

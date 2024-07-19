@@ -91,21 +91,41 @@ struct FavouriteFoodItem : View {
         }
     }
     
+    @State private var isOpen = false
+    
     var body: some View {
         HStack(alignment: VerticalAlignment.center, spacing: 0){
-            Image(getFoodModel.image)
-                .resizable()
-                .frame(
-                    width: 100,
-                    height: 100
-                )
+            HStack(alignment: VerticalAlignment.center, spacing: 5){
+                Text("먹기")
+                    .padding(10)
+                    .font(.system(size: 15, weight: .regular))
+                    .background(Color.yellow)
+                    .onTapGesture {
+                        dataVM.addConsumedFoodFromList(setFoodModel: getFoodModel)
+                    }
+                
+                Text("편집")
+                    .padding(10)
+                    .foregroundColor(Color.white)
+                    .font(.system(size: 15, weight: .regular))
+                    .background(Color.gray)
+                    .onTapGesture {
+                        isOpen.toggle()
+                    }
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .frame(
+                width: 100,
+                height: 100
+            )
+            .padding(10)
+            
             VStack(alignment: HorizontalAlignment.leading, spacing: 0){
                 HStack(alignment: VerticalAlignment.center, spacing: 5){
                     Text(getFoodModel.name)
                         .font(.system(size: 20, weight: .bold))
                     Text("\(getFoodModel.nutrients.calrories, specifier: "%.0f")kcal")
                         .font(.system(size: 13, weight: .regular))
-
                 }
                 
                 Text(getFoodModel.stuff.first ?? "")
@@ -129,5 +149,12 @@ struct FavouriteFoodItem : View {
                 )
             }
         }
+        .fullScreenCover(isPresented: $isOpen, content: {
+            CreateEditFoodView(
+                setModel: getFoodModel,
+                setType: .EDIT,
+                isOpen: $isOpen)
+        })
     }
 }
+

@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct VitaminModel : Hashable {
-    let vitaminA: Double // 비타민A (μg RAE)
-    let vitaminB1: Double // 티아민 (mg)
-    let vitaminB2: Double // 리보플라빈 (mg)
-    let vitaminB3: Double // 나이아신 (mg NE)
-    let vitaminB5: Double // 판토텐산 (mg)
-    let vitaminB6: Double // 비타민B6 (mg)
-    let vitaminB7: Double // 비오틴 (μg)
-    let vitaminB9: Double // 엽산 (μg DFE)
-    let vitaminB12: Double // 비타민B12 (μg)
-    let vitaminC: Double // 비타민C (mg)
-    let vitaminD: Double // 비타민D (μg)
-    let vitaminE: Double // 비타민E (mg α-TE)
-    let vitaminK: Double // 비타민K (μg)
+    var vitaminA: Double // 비타민A (μg RAE)
+    var vitaminB1: Double // 티아민 (mg)
+    var vitaminB2: Double // 리보플라빈 (mg)
+    var vitaminB3: Double // 나이아신 (mg NE)
+    var vitaminB5: Double // 판토텐산 (mg)
+    var vitaminB6: Double // 비타민B6 (mg)
+    var vitaminB7: Double // 비오틴 (μg)
+    var vitaminB9: Double // 엽산 (μg DFE)
+    var vitaminB12: Double // 비타민B12 (μg)
+    var vitaminC: Double // 비타민C (mg)
+    var vitaminD: Double // 비타민D (μg)
+    var vitaminE: Double // 비타민E (mg α-TE)
+    var vitaminK: Double // 비타민K (μg)
 }
 
